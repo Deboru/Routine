@@ -1,3 +1,4 @@
+import easygui
 # TODO: Get start and end time
 
 print('Good morning Debby, when did you wake up today?')
@@ -31,6 +32,12 @@ while True:
 print('Do you want to export to a text file?')
 exportyesno = input()
 if exportyesno.lower() == 'y' or 'yes':
-    textFile = open('C:\\Users\\debby\\Desktop\\routine\\Routine.txt', 'w')
-    textFile.write('%d:00 to %d:00 - %s\n' %(i, i+1, routine[i-int(starttime)]))
+    print('Where do you want to save it to?')
+    path = easygui.diropenbox()
+    print('What do you want to name it?')
+    name = input()
+    textFile = open(path+'\\'+name +'.txt', 'w')
+    for i in range(int(starttime), int(sleeptime)):
+        textFile.write('%d:00 to %d:00 - %s\n' %(i, i+1, routine[i-int(starttime)]))
+    print('The file ' + name+ '.txt has been saved in the directory ' + path)
     textFile.close()
