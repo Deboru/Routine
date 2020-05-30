@@ -1,4 +1,9 @@
 import easygui
+from tkinter import Tk
+from tkinter.filedialog import askdirectory
+
+Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+
 # TODO: Get start and end time
 
 print('Good morning Debby, when did you wake up today?')
@@ -33,7 +38,8 @@ print('Do you want to export to a text file?')
 exportyesno = input()
 if exportyesno.lower() == 'y' or 'yes':
     print('Where do you want to save it to?')
-    path = easygui.diropenbox()
+    path = askdirectory() # show an "Open" dialog box and return the path to the selected file
+    #path = easygui.diropenbox()
     print('What do you want to name it?')
     name = input()
     textFile = open(path+'\\'+name +'.txt', 'w')
