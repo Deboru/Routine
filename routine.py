@@ -6,10 +6,16 @@ Tk().withdraw() # we don't want a full GUI, so keep the root window from appeari
 
 # TODO: Get start and end time
 
-print('Good morning Debby, when did you wake up today?')
-starttime = input()
-print('And when do you plan to sleep?')
-sleeptime = input()
+print('Good morning Debby')
+while True:
+    print('When did you wake up today?')
+    starttime = input()
+    print('And when do you plan to sleep?')
+    sleeptime = input()
+    if (starttime.isdigit() and sleeptime.isdigit()):
+        break
+    else:
+        print('I\'m sorry, I\'m going to need you to input numbers\n')
 
 routine = []
 
